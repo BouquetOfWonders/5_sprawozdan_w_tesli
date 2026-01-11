@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4k6gb8wlqtun"]
 
 [ext_resource type="Script" uid="uid://cmnvgjlv6hrnr" path="res://Skrypty/kamera.gd" id="1_7nput"]
-[ext_resource type="Texture2D" uid="uid://tgqhgu2u6tk3" path="res://WatchMeBloomSmall.png" id="2_7nput"]
+[ext_resource type="Texture2D" uid="uid://d06hs5ttpcwcj" path="res://assets/PanoramaTemplate.png" id="2_7nput"]
 
 [node name="Node2D" type="Node2D"]
 

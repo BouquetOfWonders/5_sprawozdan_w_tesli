@@ -1,6 +1,6 @@
 extends Camera2D
 enum {NoCam, Cam}
-var SmoothingType := Cam
+var SmoothingType = NoCam
 @onready
 var Kamera = $"."
 var CamPosition := 0.0
@@ -29,7 +29,8 @@ func _input(event):
 			Kamera.position.x = TruePosition - 320
 		else:
 			CamPosition = TruePosition - 320
-			
+	if event.is_action_pressed("CameraTypeChange"):
+		SmoothingType = abs(SmoothingType -1)
 			
 			
 		
