@@ -30,6 +30,7 @@ func _input(event):
 		else:
 			CamPosition = TruePosition - 320
 	if event.is_action_pressed("CameraTypeChange"):
+		Globalvar.CamTransision = true
 		Globalvar.IsCameraOn = abs(Globalvar.IsCameraOn -1)
 			
 			

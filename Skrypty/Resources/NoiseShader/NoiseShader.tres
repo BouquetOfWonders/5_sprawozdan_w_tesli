@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://sd5oi0s087hk"]
+
+[ext_resource type="Shader" uid="uid://dmiiyy5yoy1hi" path="res://Skrypty/Resources/NoiseShader/NoiseShader.gdshader" id="1_dv2p6"]
+
+[resource]
+shader = ExtResource("1_dv2p6")
+shader_parameter/noise_intensity = 0.0
