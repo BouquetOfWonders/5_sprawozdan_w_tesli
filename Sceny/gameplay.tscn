@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://sq2738oqidv0" path="res://Skrypty/CamSpriteLogic.gd" id="2_jsvki"]
 [ext_resource type="PackedScene" uid="uid://cdslutwi2uppw" path="res://Sceny/CameraUI.tscn" id="2_n75w1"]
 [ext_resource type="Material" uid="uid://sd5oi0s087hk" path="res://Skrypty/Resources/NoiseShader/NoiseShader.tres" id="4_mis3r"]
-[ext_resource type="Script" uid="uid://b8o408qxvjkjv" path="res://Skrypty/CamSwitchScript.gd" id="5_jsvki"]
+[ext_resource type="Script" uid="uid://b8o408qxvjkjv" path="res://Skrypty/CamSwitchEffectScript.gd" id="5_jsvki"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_tfmsj"]
 

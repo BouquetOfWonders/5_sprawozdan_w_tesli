@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="2_kk0q5"]
 [ext_resource type="Material" uid="uid://b4cegue3hsrub" path="res://Skrypty/Resources/CameraShader/CameraShader.tres" id="2_tmoa0"]
 [ext_resource type="ButtonGroup" uid="uid://blagajqnt7k7s" path="res://Skrypty/Resources/CameraUIButtonGroup.tres" id="3_mppmi"]
-[ext_resource type="Script" uid="uid://bhk55u0lvf31k" path="res://Skrypty/CurrentCamManipulation.gd" id="3_p2pm2"]
+[ext_resource type="Script" uid="uid://bhk55u0lvf31k" path="res://Skrypty/CamSwitchScript.gd" id="3_p2pm2"]
 [ext_resource type="Script" uid="uid://beji275agxa3j" path="res://Skrypty/CamButtonScript.gd" id="5_rbv06"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_rbv06"]
