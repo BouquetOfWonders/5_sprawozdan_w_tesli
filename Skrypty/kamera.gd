@@ -12,6 +12,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Globalvar.IsCameraOn == Cam:
+		Kamera.reset_smoothing()
+		Kamera.position.y = 0
 	if Globalvar.IsCameraOn == Cam && abs(Kamera.position.x - CamPosition) > 5:
 		Kamera.position_smoothing_enabled = false
 		if Kamera.position.x > CamPosition:
@@ -23,15 +26,16 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		var TruePosition = clamp(event.position.x, 0, 1280) / 2
+		var TruePositionx = clamp(event.position.x, 0, 1280) / 2
+		var TruePositiony = clamp(event.position.y, 0, 720) / 4
 		if Globalvar.IsCameraOn == NoCam:
 			Kamera.position_smoothing_enabled = true
-			Kamera.position.x = TruePosition - 320
+			Kamera.position.x = TruePositionx - 320
+			Kamera.position.y = TruePositiony - 90
 		else:
-			CamPosition = TruePosition - 320
-	if event.is_action_pressed("CameraTypeChange"):
-		Globalvar.CamUpdate = true
-		Globalvar.IsCameraOn = abs(Globalvar.IsCameraOn -1)
+			CamPosition = TruePositionx - 320
+
+			
 			
 			
 		

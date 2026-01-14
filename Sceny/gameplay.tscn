@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://4k6gb8wlqtun"]
+[gd_scene load_steps=10 format=3 uid="uid://4k6gb8wlqtun"]
 
 [ext_resource type="Script" uid="uid://cmnvgjlv6hrnr" path="res://Skrypty/kamera.gd" id="1_7nput"]
-[ext_resource type="Texture2D" uid="uid://xhye6ek6xh6e" path="res://assets/Rooms/TestRooms/0.png" id="1_n75w1"]
+[ext_resource type="Texture2D" uid="uid://dp258g2kicjg5" path="res://assets/Rooms/MonitoringRoom/0.png" id="1_tfmsj"]
 [ext_resource type="Script" uid="uid://sq2738oqidv0" path="res://Skrypty/CamSpriteLogic.gd" id="2_jsvki"]
 [ext_resource type="PackedScene" uid="uid://cdslutwi2uppw" path="res://Sceny/CameraUI.tscn" id="2_n75w1"]
 [ext_resource type="Material" uid="uid://sd5oi0s087hk" path="res://Skrypty/Resources/NoiseShader/NoiseShader.tres" id="4_mis3r"]
 [ext_resource type="Script" uid="uid://b8o408qxvjkjv" path="res://Skrypty/CamSwitchEffectScript.gd" id="5_jsvki"]
+[ext_resource type="Material" uid="uid://cclmbqnltvgh1" path="res://Skrypty/Resources/FisheyeShader/FisheyeShader.tres" id="7_dd5ky"]
+[ext_resource type="AudioStream" uid="uid://cdjdebr3r33po" path="res://assets/SoundEffects/CamSwitch.mp3" id="7_tfmsj"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_tfmsj"]
 
@@ -13,8 +15,19 @@
 
 [node name="CameraSprite" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
-texture = ExtResource("1_n75w1")
+texture = ExtResource("1_tfmsj")
 script = ExtResource("2_jsvki")
+
+[node name="NoiseTransision2" type="MeshInstance2D" parent="."]
+material = ExtResource("7_dd5ky")
+position = Vector2(1646875.4, 620473)
+scale = Vector2(6937957.5, 3674889)
+mesh = SubResource("QuadMesh_tfmsj")
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+position = Vector2(1646875.4, 259560)
+scale = Vector2(6937957.5, 518400)
+copy_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -22,6 +35,7 @@ position_smoothing_enabled = true
 script = ExtResource("1_7nput")
 
 [node name="Control" parent="Camera2D" instance=ExtResource("2_n75w1")]
+visible = false
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="Camera2D"]
 position = Vector2(625.00006, 360)
@@ -30,7 +44,10 @@ copy_mode = 2
 
 [node name="NoiseTransision" type="MeshInstance2D" parent="Camera2D"]
 material = ExtResource("4_mis3r")
-position = Vector2(625.00006, 360)
-scale = Vector2(2634.0002, 720)
+position = Vector2(625.00006, 323.5)
+scale = Vector2(2634.0002, 1917)
 mesh = SubResource("QuadMesh_tfmsj")
 script = ExtResource("5_jsvki")
+
+[node name="CamSwitchEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tfmsj")

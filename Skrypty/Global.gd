@@ -6,7 +6,9 @@ var CamUpdate := false
 
 var CurrentCam := 1
 
+var Room0State := 0
 var Room1State := 0
+
 
 
 func _input(event):
@@ -14,4 +16,9 @@ func _input(event):
 		Room1State += 1
 		if IsCameraOn == Cam and CurrentCam == 1:
 			CamUpdate = true
+	if event.is_action_pressed("CameraTypeChange"):
+		IsCameraOn = abs(IsCameraOn -1)
+		CamUpdate = true
+		
+		
 		

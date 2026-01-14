@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdslutwi2uppw"]
+[gd_scene load_steps=10 format=3 uid="uid://cdslutwi2uppw"]
 
 [ext_resource type="Script" uid="uid://c3qru2bbl1c2a" path="res://Skrypty/CameraUI.gd" id="1_54t7v"]
 [ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="2_kk0q5"]
@@ -6,6 +6,8 @@
 [ext_resource type="ButtonGroup" uid="uid://blagajqnt7k7s" path="res://Skrypty/Resources/CameraUIButtonGroup.tres" id="3_mppmi"]
 [ext_resource type="Script" uid="uid://bhk55u0lvf31k" path="res://Skrypty/CamSwitchScript.gd" id="3_p2pm2"]
 [ext_resource type="Script" uid="uid://beji275agxa3j" path="res://Skrypty/CamButtonScript.gd" id="5_rbv06"]
+[ext_resource type="Theme" uid="uid://d2c4b4sckw63t" path="res://assets/Themes/VentilationButton.tres" id="7_kp0ay"]
+[ext_resource type="ButtonGroup" uid="uid://dfmtckvupxwop" path="res://Skrypty/Resources/VentsUiButtonGroup.tres" id="8_n1umb"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_rbv06"]
 
@@ -25,64 +27,587 @@ position = Vector2(640, 360)
 scale = Vector2(1279.9999, 720)
 mesh = SubResource("QuadMesh_rbv06")
 
-[node name="CameraLayout" type="Control" parent="."]
+[node name="CamUI" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.001
+offset_left = 850.0
+offset_top = 400.0
+offset_right = 849.72
+offset_bottom = 401.0
+scale = Vector2(0.65, 0.65)
+
+[node name="Deco" type="Control" parent="CamUI"]
 anchors_preset = 0
-offset_left = 871.0
-offset_top = 332.0
-offset_right = 1261.0
-offset_bottom = 698.0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="Room1" type="Control" parent="CamUI/Deco"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="ColorRect" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 0.49019608)
+
+[node name="2" type="ColorRect" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -15.0
+offset_bottom = 80.0
+
+[node name="3" type="ColorRect" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 80.0
+
+[node name="4" type="ColorRect" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 275.0
+offset_bottom = -15.0
+
+[node name="5" type="ColorRect" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 75.0
+offset_right = 275.0
+offset_bottom = 80.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = -250.0
+offset_right = -140.0
+offset_bottom = 60.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Floor 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = -250.0
+offset_top = -100.0
+offset_right = -140.0
+offset_bottom = -40.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Broom Closet"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = -100.0
+offset_right = 510.0
+offset_bottom = -40.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Server Room"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CamUI/Deco/Room1"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = -100.0
+offset_right = 185.0
+offset_bottom = -40.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Corridors"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Room2" type="Control" parent="CamUI/Deco"]
+anchors_preset = 0
+offset_top = 100.0
+offset_right = 40.0
+offset_bottom = 140.0
+
+[node name="1" type="ColorRect" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 0.49019608)
+
+[node name="2" type="ColorRect" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -15.0
+offset_bottom = 80.0
+
+[node name="3" type="ColorRect" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 80.0
+
+[node name="4" type="ColorRect" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 275.0
+offset_bottom = -15.0
+
+[node name="5" type="ColorRect" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 75.0
+offset_right = 275.0
+offset_bottom = 80.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = -250.0
+offset_right = -140.0
+offset_bottom = 60.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Floor 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CamUI/Deco/Room2"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 20.0
+offset_right = 510.0
+offset_bottom = 80.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Room 117"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Room3" type="Control" parent="CamUI/Deco"]
+anchors_preset = 0
+offset_top = 200.0
+offset_right = 40.0
+offset_bottom = 240.0
+
+[node name="1" type="ColorRect" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 520.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 0.49019608)
+
+[node name="2" type="ColorRect" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -15.0
+offset_bottom = 80.0
+
+[node name="3" type="ColorRect" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = 515.0
+offset_top = -20.0
+offset_right = 520.0
+offset_bottom = 80.0
+
+[node name="4" type="ColorRect" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 515.0
+offset_bottom = -15.0
+
+[node name="5" type="ColorRect" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 75.0
+offset_right = 515.0
+offset_bottom = 80.0
+
+[node name="6" type="ColorRect" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = -20.0
+offset_right = 395.0
+offset_bottom = 80.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CamUI/Deco/Room3"]
+layout_mode = 0
+offset_left = -250.0
+offset_right = -140.0
+offset_bottom = 60.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Floor 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Room4" type="Control" parent="CamUI/Deco"]
+anchors_preset = 0
+offset_top = 300.0
+offset_right = 40.0
+offset_bottom = 340.0
+
+[node name="1" type="ColorRect" parent="CamUI/Deco/Room4"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 0.49019608)
+
+[node name="2" type="ColorRect" parent="CamUI/Deco/Room4"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -15.0
+offset_bottom = 80.0
+
+[node name="3" type="ColorRect" parent="CamUI/Deco/Room4"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = -20.0
+offset_right = 280.0
+offset_bottom = 80.0
+
+[node name="4" type="ColorRect" parent="CamUI/Deco/Room4"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 275.0
+offset_bottom = -15.0
+
+[node name="5" type="ColorRect" parent="CamUI/Deco/Room4"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 75.0
+offset_right = 275.0
+offset_bottom = 80.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CamUI/Deco/Room4"]
+layout_mode = 0
+offset_left = -250.0
+offset_right = -140.0
+offset_bottom = 60.0
+bbcode_enabled = true
+text = "[font=res://assets/Fonts/Tiny5-Regular.ttf][font_size=25] Floor -1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1" type="Button" parent="CamUI/Deco"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 10.000061
+offset_right = 335.0
+offset_bottom = 50.00006
+theme = ExtResource("7_kp0ay")
+disabled = true
+action_mode = 0
+
+[node name="2" type="Button" parent="CamUI/Deco"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 110.00006
+offset_right = 335.0
+offset_bottom = 150.00006
+theme = ExtResource("7_kp0ay")
+disabled = true
+action_mode = 0
+
+[node name="3" type="Button" parent="CamUI/Deco"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 210.00006
+offset_right = 335.0
+offset_bottom = 250.00006
+theme = ExtResource("7_kp0ay")
+disabled = true
+action_mode = 0
+
+[node name="4" type="Button" parent="CamUI/Deco"]
+layout_mode = 0
+offset_left = -75.0
+offset_top = 310.00006
+offset_right = 335.0
+offset_bottom = 350.00006
+theme = ExtResource("7_kp0ay")
+disabled = true
+action_mode = 0
+
+[node name="5" type="Button" parent="CamUI/Deco"]
+layout_mode = 0
+offset_left = 385.00012
+offset_top = 320.00006
+offset_right = 485.00012
+offset_bottom = 380.00006
+theme = ExtResource("7_kp0ay")
+disabled = true
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="6" type="Button" parent="CamUI/Deco"]
+layout_mode = 0
+offset_left = 425.00012
+offset_top = 260.00006
+offset_right = 485.00012
+offset_bottom = 320.00006
+theme = ExtResource("7_kp0ay")
+disabled = true
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="CameraLayout" type="Control" parent="CamUI"]
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 1.0
 script = ExtResource("3_p2pm2")
 buttongroup = ExtResource("3_mppmi")
 
-[node name="1" type="Button" parent="CameraLayout"]
+[node name="1" type="Button" parent="CamUI/CameraLayout"]
 layout_mode = 0
-offset_right = 95.0
+offset_left = -150.0
+offset_top = -100.0
+offset_right = -40.0
+offset_bottom = -40.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = "  Cam 1"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="2" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = -100.0
+offset_right = 410.0
+offset_bottom = -40.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = "  Cam 2"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="3" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_right = 110.0
 offset_bottom = 60.0
 theme = ExtResource("2_kk0q5")
 toggle_mode = true
 button_pressed = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = " Cam 1"
+text = "  Cam 3"
 alignment = 0
 script = ExtResource("5_rbv06")
 
-[node name="2" type="Button" parent="CameraLayout"]
+[node name="4" type="Button" parent="CamUI/CameraLayout"]
 layout_mode = 0
-offset_left = 139.0
-offset_right = 234.0
+offset_left = 150.0
+offset_right = 260.0
 offset_bottom = 60.0
 theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = " Cam 2"
+text = "  Cam 4"
 alignment = 0
 script = ExtResource("5_rbv06")
 
-[node name="3" type="Button" parent="CameraLayout"]
+[node name="5" type="Button" parent="CamUI/CameraLayout"]
 layout_mode = 0
-offset_top = 110.0
-offset_right = 90.0
-offset_bottom = 170.0
+offset_top = 100.0
+offset_right = 110.0
+offset_bottom = 160.0
 theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = " Cam 3"
+text = "  Cam 5"
 alignment = 0
 script = ExtResource("5_rbv06")
 
-[node name="4" type="Button" parent="CameraLayout"]
+[node name="6" type="Button" parent="CamUI/CameraLayout"]
 layout_mode = 0
-offset_left = 139.0
-offset_top = 110.0
-offset_right = 234.0
-offset_bottom = 170.0
+offset_left = 150.0
+offset_top = 100.0
+offset_right = 260.0
+offset_bottom = 160.0
 theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = " Cam 4"
+text = "  Cam 6"
 alignment = 0
 script = ExtResource("5_rbv06")
+
+[node name="7" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 110.0
+offset_bottom = 260.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = "  Cam 7"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="8" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 200.0
+offset_right = 260.0
+offset_bottom = 260.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = "  Cam 8"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="9" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 510.0
+offset_bottom = 260.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = "  Cam 9"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="10" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_top = 300.0
+offset_right = 95.0
+offset_bottom = 360.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = " Cam 10"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="11" type="Button" parent="CamUI/CameraLayout"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 300.0
+offset_right = 245.0
+offset_bottom = 360.0
+theme = ExtResource("2_kk0q5")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("3_mppmi")
+text = " Cam 11"
+alignment = 0
+script = ExtResource("5_rbv06")
+
+[node name="VentsLayout" type="Control" parent="CamUI"]
+anchors_preset = 0
+offset_right = 1.0
+offset_bottom = 1.0
+
+[node name="1" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = -125.0
+offset_top = -40.0
+offset_right = -65.0
+offset_bottom = 80.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="2" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = -125.0
+offset_top = 80.0
+offset_right = -65.0
+offset_bottom = 180.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="3" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = -125.0
+offset_top = 180.0
+offset_right = -65.0
+offset_bottom = 280.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="4" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = -125.0
+offset_top = 280.0
+offset_right = -65.0
+offset_bottom = 380.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="5" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -40.0
+offset_right = 385.0
+offset_bottom = 80.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="6" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 80.0
+offset_right = 385.0
+offset_bottom = 180.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="7" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 180.0
+offset_right = 385.0
+offset_bottom = 280.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
+
+[node name="8" type="Button" parent="CamUI/VentsLayout"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 280.0
+offset_right = 385.0
+offset_bottom = 380.0
+theme = ExtResource("7_kp0ay")
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("8_n1umb")
