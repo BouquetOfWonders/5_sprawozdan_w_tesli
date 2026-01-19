@@ -4,4 +4,4 @@
 
 [resource]
 shader = ExtResource("1_dv2p6")
-shader_parameter/noise_intensity = 0.0250000011875
+shader_parameter/noise_intensity = 0.0

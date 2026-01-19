@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://fbikvj31ou62"]
+
+[ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="1_5e8lx"]
+[ext_resource type="Script" uid="uid://rgs8fw7nplwd" path="res://Skrypty/MenuScript.gd" id="1_78v38"]
+[ext_resource type="Script" uid="uid://beji275agxa3j" path="res://Skrypty/CamButtonScript.gd" id="2_78v38"]
+
+[node name="MenuUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_78v38")
+
+[node name="NewGame" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 320.0
+offset_right = 280.0
+offset_bottom = 380.0
+theme = ExtResource("1_5e8lx")
+action_mode = 0
+text = "MENU_NEW_GAME"
+alignment = 0
+script = ExtResource("2_78v38")
+
+[node name="Continue" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 400.0
+offset_right = 280.0
+offset_bottom = 460.0
+theme = ExtResource("1_5e8lx")
+disabled = true
+action_mode = 0
+text = "MENU_CONTINUE"
+alignment = 0
+script = ExtResource("2_78v38")
+
+[node name="Options" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 480.0
+offset_right = 280.0
+offset_bottom = 540.0
+theme = ExtResource("1_5e8lx")
+action_mode = 0
+text = "MENU_OPTIONS"
+alignment = 0
+script = ExtResource("2_78v38")
+
+[node name="ThreatDocumentation" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 560.0
+offset_right = 302.0
+offset_bottom = 620.0
+theme = ExtResource("1_5e8lx")
+disabled = true
+action_mode = 0
+text = "MENU_THREAT_DOC"
+alignment = 0
+script = ExtResource("2_78v38")
+
+[node name="Exit" type="Button" parent="."]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 0
+offset_left = 20.0
+offset_top = 640.0
+offset_right = 280.0
+offset_bottom = 700.0
+theme = ExtResource("1_5e8lx")
+action_mode = 0
+text = "MENU_EXIT"
+alignment = 0
+script = ExtResource("2_78v38")
+
+[connection signal="button_down" from="NewGame" to="." method="_on_new_game_button_down"]
+[connection signal="button_down" from="Continue" to="." method="_on_continue_button_down"]
+[connection signal="button_down" from="Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="ThreatDocumentation" to="." method="_on_threat_documentation_button_down"]
+[connection signal="button_down" from="Exit" to="." method="_on_exit_button_down"]

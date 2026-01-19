@@ -10,8 +10,10 @@ config_version=5
 
 [application]
 
-config/name="5 Sprawozdań w Tesli"
-run/main_scene="uid://4k6gb8wlqtun"
+config/name="5 Sprawozdań"
+run/main_scene="uid://drft22qmdm2t"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="BouquetOfWonders/5 Sprawozdan"
 config/features=PackedStringArray("4.5", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/fullsize=false
@@ -20,6 +22,11 @@ boot_splash/image="uid://bo3iu2odfk1op"
 [autoload]
 
 GlobalVar="*res://Skrypty/Global.gd"
+SaveData="*res://Skrypty/SaveData.gd"
+
+[debug]
+
+settings/crash_handler/message.editor="Please include this when reporting the bug on: https://github.com/BouquetOfWonders/5_sprawozdan"
 
 [display]
 
@@ -103,6 +110,10 @@ DoorKey={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://Translations/Translations.en.translation", "res://Translations/Translations.pl.translation")
 
 [rendering]
 

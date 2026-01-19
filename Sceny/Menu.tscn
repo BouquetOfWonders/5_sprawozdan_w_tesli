@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://drft22qmdm2t"]
+
+[ext_resource type="Texture2D" uid="uid://cflxm58inrm1b" path="res://assets/Rooms/Room3/0.png" id="1_6fyux"]
+[ext_resource type="PackedScene" uid="uid://fbikvj31ou62" path="res://Sceny/menu_ui.tscn" id="1_lkdqq"]
+[ext_resource type="Script" uid="uid://cq6y515v1y1dl" path="res://Skrypty/MenuCameraSprite.gd" id="2_3o518"]
+[ext_resource type="Material" uid="uid://cclmbqnltvgh1" path="res://Skrypty/Resources/FisheyeShader/FisheyeShader.tres" id="3_52gn0"]
+[ext_resource type="Material" uid="uid://b4cegue3hsrub" path="res://Skrypty/Resources/CameraShader/CameraShader.tres" id="4_stkhx"]
+[ext_resource type="Material" uid="uid://sd5oi0s087hk" path="res://Skrypty/Resources/NoiseShader/NoiseShader.tres" id="5_dwb77"]
+[ext_resource type="Script" uid="uid://otsg78gq0v4i" path="res://Skrypty/MenuNoiseTransision.gd" id="6_neymg"]
+[ext_resource type="Texture2D" uid="uid://ch5xwx8xkyejb" path="res://assets/logotest.png" id="8_3o518"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vbx7t"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_of6t8"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_omg15"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="CameraSprite" type="Sprite2D" parent="."]
+position = Vector2(460, 360)
+texture = ExtResource("1_6fyux")
+script = ExtResource("2_3o518")
+
+[node name="FisheyeShader" type="MeshInstance2D" parent="."]
+material = ExtResource("3_52gn0")
+position = Vector2(1646875.4, 620473)
+scale = Vector2(6937957.5, 3674889)
+mesh = SubResource("QuadMesh_vbx7t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+position_smoothing_enabled = true
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="Camera2D"]
+position = Vector2(1646875.4, 259560)
+scale = Vector2(6937957.5, 518400)
+copy_mode = 2
+
+[node name="CameraShader" type="MeshInstance2D" parent="Camera2D"]
+modulate = Color(1, 1, 1, 0.3137255)
+material = ExtResource("4_stkhx")
+position = Vector2(640, 360)
+scale = Vector2(1279.9999, 720)
+mesh = SubResource("QuadMesh_of6t8")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Camera2D"]
+position = Vector2(625.00006, 360)
+scale = Vector2(2634.0002, 720)
+copy_mode = 2
+
+[node name="NoiseTransision" type="MeshInstance2D" parent="Camera2D"]
+material = ExtResource("5_dwb77")
+position = Vector2(628, 336)
+scale = Vector2(2634.0002, 1917.0001)
+mesh = SubResource("QuadMesh_omg15")
+script = ExtResource("6_neymg")
+
+[node name="MenuUI" parent="." instance=ExtResource("1_lkdqq")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(975, 293)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_3o518")

@@ -393,7 +393,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 1"
+text = " Cam 1"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -407,7 +407,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 2"
+text = " Cam 2"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -433,7 +433,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 4"
+text = " Cam 4"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -446,7 +446,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 5"
+text = " Cam 5"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -460,7 +460,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 6"
+text = " Cam 6"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -473,7 +473,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 7"
+text = " Cam 7"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -487,7 +487,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 8"
+text = " Cam 8"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -501,7 +501,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = "  Cam 9"
+text = " Cam 9"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -514,7 +514,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = " Cam 10"
+text = "Cam 10"
 alignment = 0
 script = ExtResource("5_rbv06")
 
@@ -528,7 +528,7 @@ theme = ExtResource("2_kk0q5")
 toggle_mode = true
 action_mode = 0
 button_group = ExtResource("3_mppmi")
-text = " Cam 11"
+text = "Cam 11"
 alignment = 0
 script = ExtResource("5_rbv06")
 

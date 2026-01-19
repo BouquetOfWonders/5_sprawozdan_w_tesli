@@ -106,7 +106,7 @@ shader_parameter/noise_intensity = 0.050000002375
 
 [sub_resource type="QuadMesh" id="QuadMesh_tfmsj"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Gameplay" type="Node2D"]
 
 [node name="CameraSprite" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -205,10 +205,12 @@ script = ExtResource("5_jsvki")
 
 [node name="CamSwitchEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_tfmsj")
+bus = &"SoundEffects"
 
 [node name="CamEnterExitEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("26_s3j7p")
-volume_db = -7.0
+volume_db = -15.0
+bus = &"SoundEffects"
 
 [connection signal="button_down" from="MonitorButton" to="MonitorButton" method="_on_button_down"]
 [connection signal="button_down" from="DoorButton" to="DoorButton" method="_on_button_down"]
