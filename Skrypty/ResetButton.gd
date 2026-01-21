@@ -29,6 +29,9 @@ func _process(delta: float) -> void:
 			$"../MasterVolume".value = 50
 			$"../SFXVolume".value = 50
 			$"../MusicVolume".value = 50
+			$"../../MainMenu/Continue".disabled = true
+			$"../../MainMenu/ThreatDocumentation".disabled = true
+			$"../../MainMenu/NewCNGame".visible = false
 			WasJustReset = true
 	elif WasJustReset and Root.button_pressed == true:
 		RedStylebox.bg_color = Color(0.196, 1.0, 0.196, 1.0)

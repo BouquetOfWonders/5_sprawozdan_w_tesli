@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 			SaveData._save()
 			$"../../BlackScreen".visible = true
 			IsLoading = true
-			
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	elif IsLoading:
 		I += delta
 		$"../../BlackScreen".self_modulate = Color(1.0, 1.0, 1.0, I)

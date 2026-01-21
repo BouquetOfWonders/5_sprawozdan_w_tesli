@@ -12,3 +12,12 @@ VOLUME_SFX,Sound Effects,Efekty Dźwiękowe
 VOLUME_MUSIC,Music,Muzyka
 RESET_SAVE_FILE,Reset Save File,Resetuj stan zapisu gry
 MENU_GO_BACK,Return,Powrót
+MENU_CUSTOM,Custom Mode,Tryb Własny
+MENU_CREDITS,Credits,Twórcy
+NIGHT_0,OHS Training,Szkolenie BHP
+NIGHT_1,Night 1,Noc 1
+NIGHT_2,Night 2,Noc 2
+NIGHT_3,Night 3,Noc 3
+NIGHT_4,Night 4,Noc 4
+NIGHT_5,Night 5,Noc 5
+NIGHT_6,Night 6,Noc 6

@@ -13,6 +13,7 @@ func _ready() -> void:
 
 
 func _on_continue_button_down() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$BlackScreen.visible = true
 	for I in 60:
 		$BlackScreen.self_modulate = Color(1.0, 1.0, 1.0, float(I)/60)

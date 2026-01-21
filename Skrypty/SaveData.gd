@@ -8,10 +8,10 @@ static var Defaults: Dictionary = {
 	"Music": linear_to_db(1),
 	"SoundEffects": linear_to_db(1),
 	
-	"currentNight": 0,
-	"isCNunlocked": false,
+	"currentNight": 2,
+	"isCNunlocked": true,
 	
-	"etherCounter": 0,
+	"etherCounter": 1,
 	"analougeCounter": 0,
 	"servoCounter": 0,
 	"randyCounter": 0,

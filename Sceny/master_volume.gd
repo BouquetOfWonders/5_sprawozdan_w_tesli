@@ -30,6 +30,5 @@ func _on_value_changed(value: float) -> void:
 		await Audio.finished
 	Audio.bus = "SoundEffects"
 	SaveData.Contents.set(busname, linear_to_db(value/50))
-	print(SaveData.Contents.get(busname))
 	SaveData._save()
 	

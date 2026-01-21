@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://4k6gb8wlqtun"]
+[gd_scene load_steps=39 format=3 uid="uid://4k6gb8wlqtun"]
 
 [ext_resource type="Script" uid="uid://cmnvgjlv6hrnr" path="res://Skrypty/kamera.gd" id="1_7nput"]
 [ext_resource type="Texture2D" uid="uid://dp258g2kicjg5" path="res://assets/Rooms/MonitoringRoom/0.png" id="1_tfmsj"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://dopku41t088dn" path="res://Skrypty/DoorButton.gd" id="25_s3j7p"]
 [ext_resource type="AudioStream" uid="uid://dn3tspo5qu2fj" path="res://assets/SoundEffects/CamEnter-exit.mp3" id="26_s3j7p"]
 [ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="27_76rj7"]
+[ext_resource type="Script" uid="uid://dg8wekegenexx" path="res://Skrypty/black_screen.gd" id="27_sjlag"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_odu1o"]
 animations = [{
@@ -223,6 +224,7 @@ modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
 position = Vector2(640, 360)
 scale = Vector2(1280, 720)
 mesh = SubResource("QuadMesh_s3j7p")
+script = ExtResource("27_sjlag")
 
 [node name="Control" type="Control" parent="BlackScreen"]
 layout_mode = 3
@@ -233,9 +235,8 @@ offset_right = 0.5
 offset_bottom = 0.5
 
 [node name="Label" type="Label" parent="."]
-offset_left = 390.0
 offset_top = 300.0
-offset_right = 890.0
+offset_right = 1280.0
 offset_bottom = 420.0
 theme = ExtResource("27_76rj7")
 label_settings = SubResource("LabelSettings_sjlag")
