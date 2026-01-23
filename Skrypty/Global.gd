@@ -3,16 +3,20 @@ enum {NoCam, Cam}
 var IsCameraOn := NoCam
 var CamTransision := false
 var CamUpdate := false
+var ForceNoCamTransision := false
 
 var MenuCamTransision := false
 
 var CanCameraMove := false
 
-var CurrentCam := 1
+var CurrentCam := 3
+
+var IsModemOn := true
 
 var VentDecontamination := false
-var VentDecontID = 0
-var TripwireID = 0
+var VentDecontID := 0
+var DeconTimeout := false
+var TripwireID := 0
 
 var RandyAI := 0
 var ServoAI := 0
@@ -38,8 +42,9 @@ var Room11State := 0
 
 func _input(event):
 	if event.is_action_pressed("statechangedebug"):
-		Room1State += 1
-		if IsCameraOn == Cam and CurrentCam == 1:
+		Room2State += 1
+		if IsCameraOn == Cam and CurrentCam == 2:
+			ForceNoCamTransision = true
 			CamUpdate = true
 
 		

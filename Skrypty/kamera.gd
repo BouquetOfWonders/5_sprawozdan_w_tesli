@@ -34,7 +34,9 @@ func _input(event):
 			Kamera.position.y = TruePositiony - 90
 		else:
 			CamPosition = TruePositionx - 320
-
+	elif not Globalvar.CanCameraMove:
+		Kamera.position = Vector2(0, 0)
+		CamPosition = 0
 			
 			
 			

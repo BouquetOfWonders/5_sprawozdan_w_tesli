@@ -8,10 +8,10 @@ static var Defaults: Dictionary = {
 	"Music": linear_to_db(1),
 	"SoundEffects": linear_to_db(1),
 	
-	"currentNight": 2,
-	"isCNunlocked": true,
+	"currentNight": 0,
+	"isCNunlocked": false,
 	
-	"etherCounter": 1,
+	"etherCounter": 0,
 	"analougeCounter": 0,
 	"servoCounter": 0,
 	"randyCounter": 0,
@@ -19,7 +19,7 @@ static var Defaults: Dictionary = {
 	
 }
 
-var Contents: Dictionary = {}
+var Contents: Dictionary
 
 func _reset():
 	var file = FileAccess.open(saveLocation, FileAccess.WRITE)

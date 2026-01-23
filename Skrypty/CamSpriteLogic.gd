@@ -23,8 +23,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if GlobalVar.IsCameraOn == GlobalVar.Cam and GlobalVar.CurrentCam == 2 and not GlobalVar.IsModemOn:
+		root.visible = false
+	else:
+		root.visible = true
 	if GlobalVar.CamUpdate == true:
-		GlobalVar.CamTransision = true
+		if GlobalVar.ForceNoCamTransision:
+			GlobalVar.ForceNoCamTransision = false
+		else:
+			GlobalVar.CamTransision = true
 		GlobalVar.CamUpdate = false
 		var DisplayedCam := GlobalVar.CurrentCam
 		if GlobalVar.IsCameraOn == 0:

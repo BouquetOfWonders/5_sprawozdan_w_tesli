@@ -24,5 +24,6 @@ func _process(_delta: float) -> void:
 func _on_texture_button_button_down() -> void:
 	GlobalVar.IsCameraOn = abs(GlobalVar.IsCameraOn -1)
 	GlobalVar.CamUpdate = true
+	GlobalVar.CanCameraMove = true
 	SoundEffect.pitch_scale = rng.randf_range(0.9, 1.1)
 	SoundEffect.play()

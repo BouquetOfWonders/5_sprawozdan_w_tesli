@@ -14,6 +14,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_down() -> void:
+	if GlobalVar.CurrentCam == 1 or GlobalVar.CurrentCam == 2:
+		GlobalVar.CanCameraMove = false
 	GlobalVar.IsCameraOn = abs(GlobalVar.IsCameraOn -1)
 	GlobalVar.CamUpdate = true
 	SoundEffect.pitch_scale = rng.randf_range(0.9, 1.1)

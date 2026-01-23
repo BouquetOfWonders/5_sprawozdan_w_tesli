@@ -5,6 +5,8 @@ var rng = RandomNumberGenerator.new()
 
 func _input(event):
 	if event.is_action_pressed("CameraTypeChange"):
+		if GlobalVar.CurrentCam == 1 or GlobalVar.CurrentCam == 2:
+			GlobalVar.CanCameraMove = false
 		GlobalVar.IsCameraOn = abs(GlobalVar.IsCameraOn -1)
 		GlobalVar.CamUpdate = true
 		SoundEffect.pitch_scale = rng.randf_range(0.9, 1.1)

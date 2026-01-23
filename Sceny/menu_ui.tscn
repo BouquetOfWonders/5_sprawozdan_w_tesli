@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://fbikvj31ou62"]
+[gd_scene load_steps=11 format=3 uid="uid://fbikvj31ou62"]
 
 [ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="1_5e8lx"]
 [ext_resource type="Script" uid="uid://rgs8fw7nplwd" path="res://Skrypty/MenuScript.gd" id="1_78v38"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dogjb38xtbky" path="res://Skrypty/ResetButton.gd" id="5_iw7jg"]
 [ext_resource type="Script" uid="uid://comq38ct76o2a" path="res://Sceny/master_volume.gd" id="6_wo1d5"]
 [ext_resource type="AudioStream" uid="uid://cdjdebr3r33po" path="res://assets/SoundEffects/CamSwitch.mp3" id="7_v7tgf"]
+[ext_resource type="Texture2D" uid="uid://dh7es6nnc45or" path="res://assets/ProductLogoTransparent.png" id="9_4u21q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_fo2r8"]
 
@@ -29,9 +30,9 @@ offset_bottom = 40.0
 custom_minimum_size = Vector2(260, 60)
 layout_mode = 0
 offset_left = 20.0
-offset_top = 320.0
+offset_top = 400.0
 offset_right = 280.0
-offset_bottom = 380.0
+offset_bottom = 460.0
 theme = ExtResource("1_5e8lx")
 action_mode = 0
 text = "MENU_NEW_GAME"
@@ -42,9 +43,9 @@ script = ExtResource("3_fo2r8")
 custom_minimum_size = Vector2(260, 60)
 layout_mode = 0
 offset_left = 20.0
-offset_top = 400.0
+offset_top = 320.0
 offset_right = 280.0
-offset_bottom = 460.0
+offset_bottom = 380.0
 theme = ExtResource("1_5e8lx")
 disabled = true
 action_mode = 0
@@ -216,6 +217,19 @@ text = "VOLUME_MUSIC"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_v7tgf")
 bus = &"SoundEffects"
+
+[node name="ProductLogoTransparent" type="Sprite2D" parent="."]
+position = Vector2(1112, 620)
+texture = ExtResource("9_4u21q")
+
+[node name="Label" type="Label" parent="ProductLogoTransparent"]
+offset_left = -437.0
+offset_top = -14.0
+offset_right = -117.0
+offset_bottom = 21.0
+theme = ExtResource("1_5e8lx")
+text = "MADE_BY"
+horizontal_alignment = 2
 
 [node name="BlackScreen" type="MeshInstance2D" parent="."]
 visible = false
