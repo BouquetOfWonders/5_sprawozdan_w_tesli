@@ -205,6 +205,15 @@ volume_db = 4.0
 panning_strength = 2.0
 bus = &"SoundEffects"
 
+[node name="DoorPitchedDown" type="AudioStreamPlayer2D" parent="DoorButton"]
+position = Vector2(60, 175)
+stream = ExtResource("21_ayltx")
+volume_db = 4.0
+pitch_scale = 0.5
+max_polyphony = 2
+panning_strength = 2.0
+bus = &"SoundEffects"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true

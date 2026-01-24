@@ -20,8 +20,8 @@ var TripwireID := 0
 
 var RandyAI := 0
 var ServoAI := 0
-var AnalougeAI := 0
-var EtherAi := 1
+var AnalougeAI := 20
+var EtherAi := 0
 var BbgAI := 0
 
 var DayMultiplier := 1.0

@@ -14,6 +14,8 @@ var Vents: Array = [
 @onready
 var SwitchCamSFX = $"../CamEnterExitEffect"
 
+var RoomStates := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
 var PreviousCamState := 0
 
 var BBGTimer := 0.0
@@ -27,6 +29,7 @@ var EtherPosition := 0
 var AnalougeTimer := 7.5
 # X for room, Y for Floor
 var AnalougePosition := Vector2i(0, 2)
+var AnalougePreviousPosition := Vector2i(9, 9)
 var ServoTimer := 8.0
 # X for room, Y for Floor
 var ServoPosition := Vector2i(0, 5)
@@ -58,7 +61,8 @@ func _process(delta: float) -> void:
 		else:
 			DayTimer += delta
 		BBGprocessing()
-		Analougeprocessing()
+		if GlobalVar.AnalougeAI != 0:
+			Analougeprocessing()
 		Servoprocessing()
 		Randyprocessing()
 		CameraUpdater()
@@ -123,16 +127,90 @@ func Etherprocessing():
 			EtherOtherTimer = 0
 
 func Analougeprocessing():
-	pass
+	if AnalougeTimer < 0:
+		AnalougeTimer = 7.5
+		if GlobalVar.AnalougeAI >= rng.randi_range(0, 20):
+			AnalougePreviousPosition = AnalougePosition
+			if AnalougePosition == Vector2i(2, 0):
+				if (5 + GlobalVar.AnalougeAI) >= rng.randi_range(0, 10):
+					if not GlobalVar.IsDoorClosed:
+						JumpscareHandler(2)
+					else:
+						AnalougePosition = Vector2i(randi_range(0, 1), 2)
+						$"../DoorButton/DoorPitchedDown".play(0.18)
+			elif AnalougePosition.y == 0 and AnalougePosition.x != 2:
+				AnalougePosition.x += 1
+			elif (50 + GlobalVar.AnalougeAI) >= rng.randi_range(0, 100) and AnalougePosition != Vector2i(2, 0):
+					AnalougePosition.y -= 1
+			else:
+				AnalougePosition.x = abs(AnalougePosition.x - 1)
 func Servoprocessing():
 	pass
 func Randyprocessing():
 	pass
 func CameraUpdater():
-	pass
+	
+	GlobalVar.Room1State = 0
+	GlobalVar.Room3State = 0
+	GlobalVar.Room4State = 0
+	GlobalVar.Room5State = 0
+	GlobalVar.Room6State = 0
+	GlobalVar.Room7State = 0
+	GlobalVar.Room8State = 0
+	GlobalVar.Room9State = 0
+	GlobalVar.Room10State = 0
+	
+	if GlobalVar.AnalougeAI != 0:
+		GlobalVar.Room11State = 0
+		match AnalougePosition:
+			Vector2i(0, 2):
+				GlobalVar.Room3State = 1
+				updateCam(3, 1)
+			Vector2i(1, 2):
+				GlobalVar.Room4State = 1
+				updateCam(4, 1)
+			Vector2i(0, 1):
+				GlobalVar.Room5State = 1
+				updateCam(5, 1)
+			Vector2i(1, 1):
+				GlobalVar.Room6State = 1
+				updateCam(6, 1)
+			Vector2i(0, 0):
+				GlobalVar.Room7State = 1
+				updateCam(7, 1)
+			Vector2i(1, 0):
+				GlobalVar.Room8State = 1
+				updateCam(8, 1)
+			Vector2i(2, 0):
+				GlobalVar.Room9State = 1
+				updateCam(9, 1)
+		match AnalougePreviousPosition:
+			Vector2i(0, 2):
+				GlobalVar.Room3State = 0
+				updateCam(3, 0)
+			Vector2i(1, 2):
+				GlobalVar.Room4State = 0
+				updateCam(4, 0)
+			Vector2i(0, 1):
+				GlobalVar.Room5State = 0
+				updateCam(5, 0)
+			Vector2i(1, 1):
+				GlobalVar.Room6State = 0
+				updateCam(6, 0)
+			Vector2i(0, 0):
+				GlobalVar.Room7State = 0
+				updateCam(7, 0)
+			Vector2i(1, 0):
+				GlobalVar.Room8State = 0
+				updateCam(8, 0)
+			Vector2i(2, 0):
+				GlobalVar.Room9State = 0
+				updateCam(9, 0)
 
 
 func JumpscareHandler(WhichAnimatronic: int):
+	print("JUMPSCARE!")
+	print(WhichAnimatronic)
 	if GlobalVar.IsCameraOn == GlobalVar.Cam:
 		GlobalVar.IsCameraOn = GlobalVar.NoCam
 		GlobalVar.CamUpdate = true
@@ -154,3 +232,9 @@ func JumpscareHandler(WhichAnimatronic: int):
 func _on_black_screen_setup_ready() -> void:
 	DayStarted = true
 	MaxDayTimer = MaxDayTimer * GlobalVar.DayMultiplier
+
+func updateCam(Which: int, Value: int):
+	if RoomStates[Which] != Value:
+		RoomStates[Which] = Value
+		if GlobalVar.CurrentCam == Which and GlobalVar.IsCameraOn == GlobalVar.Cam:
+						GlobalVar.CamUpdate = true
