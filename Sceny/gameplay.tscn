@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://4k6gb8wlqtun"]
+[gd_scene load_steps=47 format=3 uid="uid://4k6gb8wlqtun"]
 
 [ext_resource type="Script" uid="uid://cmnvgjlv6hrnr" path="res://Skrypty/kamera.gd" id="1_7nput"]
 [ext_resource type="Texture2D" uid="uid://dp258g2kicjg5" path="res://assets/Rooms/MonitoringRoom/0.png" id="1_tfmsj"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ci6clp631frnc" path="res://assets/Rooms/MonitoringRoom/DoorAnimation/11.png" id="13_ayltx"]
 [ext_resource type="Script" uid="uid://bg7wxupt5x0ss" path="res://Skrypty/DoorScript.gd" id="14_gfwu5"]
 [ext_resource type="Shader" uid="uid://dmiiyy5yoy1hi" path="res://Skrypty/Resources/NoiseShader/NoiseShader.gdshader" id="15_i8swn"]
+[ext_resource type="AudioStream" uid="uid://cjgs1mcwcdk1w" path="res://assets/SoundEffects/DoorClose.mp3" id="21_ayltx"]
 [ext_resource type="BitMap" uid="uid://dyhqn1m1w1t21" path="res://assets/Buttons/MonitorMap.png" id="22_g8bd4"]
 [ext_resource type="Script" uid="uid://mnefcs7uwuj7" path="res://Skrypty/MonitorButton.gd" id="23_3ol7l"]
 [ext_resource type="BitMap" uid="uid://bogctxm2sufrg" path="res://assets/Buttons/DoorButton.png" id="24_2gjri"]
@@ -28,6 +29,13 @@
 [ext_resource type="AudioStream" uid="uid://dn3tspo5qu2fj" path="res://assets/SoundEffects/CamEnter-exit.mp3" id="26_s3j7p"]
 [ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="27_76rj7"]
 [ext_resource type="Script" uid="uid://dg8wekegenexx" path="res://Skrypty/black_screen.gd" id="27_sjlag"]
+[ext_resource type="Script" uid="uid://bbymys3klsmxb" path="res://Skrypty/ai_managerScript.gd" id="29_v86xe"]
+[ext_resource type="AudioStream" uid="uid://cxpd8qfnl1rpi" path="res://assets/SoundEffects/VentSFX/Vent1.mp3" id="31_3v4s6"]
+[ext_resource type="AudioStream" uid="uid://bjwx3x7wwp6mt" path="res://assets/SoundEffects/VentSFX/Vent2.mp3" id="32_kf65n"]
+[ext_resource type="AudioStream" uid="uid://dvfet28xtkfqd" path="res://assets/SoundEffects/VentSFX/Vent3.mp3" id="33_5xrft"]
+[ext_resource type="AudioStream" uid="uid://epxvvol6wkmw" path="res://assets/SoundEffects/VentSFX/Vent4.mp3" id="34_5p335"]
+[ext_resource type="AudioStream" uid="uid://b2wbnxgcakmx5" path="res://assets/SoundEffects/VentSFX/Vent5.mp3" id="35_o1uf2"]
+[ext_resource type="AudioStream" uid="uid://cqlhba84xakyg" path="res://assets/SoundEffects/VentSFX/Vent6.mp3" id="36_01f8d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_odu1o"]
 animations = [{
@@ -190,6 +198,13 @@ offset_bottom = 593.0
 texture_click_mask = ExtResource("24_2gjri")
 script = ExtResource("25_s3j7p")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DoorButton"]
+position = Vector2(60, 175)
+stream = ExtResource("21_ayltx")
+volume_db = 4.0
+panning_strength = 2.0
+bus = &"SoundEffects"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 position_smoothing_enabled = true
@@ -209,6 +224,10 @@ position = Vector2(628, 336)
 scale = Vector2(2634.0002, 1917.0001)
 mesh = SubResource("QuadMesh_tfmsj")
 script = ExtResource("5_jsvki")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
+position = Vector2(640, 360)
+current = true
 
 [node name="CamSwitchEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_tfmsj")
@@ -243,6 +262,43 @@ label_settings = SubResource("LabelSettings_sjlag")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AI manager" type="Node" parent="."]
+script = ExtResource("29_v86xe")
+
+[node name="SFX" type="Node" parent="AI manager"]
+
+[node name="Vent1" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("31_3v4s6")
+bus = &"SoundEffects"
+
+[node name="Vent2" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("32_kf65n")
+bus = &"SoundEffects"
+
+[node name="Vent3" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("33_5xrft")
+bus = &"SoundEffects"
+
+[node name="Vent4" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("34_5p335")
+bus = &"SoundEffects"
+
+[node name="Vent5" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("35_o1uf2")
+bus = &"SoundEffects"
+
+[node name="Vent6" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("36_01f8d")
+bus = &"SoundEffects"
+
+[node name="Control" type="Control" parent="AI manager"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
 [connection signal="button_down" from="MonitorButton" to="MonitorButton" method="_on_button_down"]
 [connection signal="button_down" from="DoorButton" to="DoorButton" method="_on_button_down"]
 [connection signal="button_up" from="DoorButton" to="DoorButton" method="_on_button_up"]
+[connection signal="SetupReady" from="BlackScreen" to="AI manager" method="_on_black_screen_setup_ready"]

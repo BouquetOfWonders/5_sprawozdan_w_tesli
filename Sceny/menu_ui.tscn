@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://030de2uhhgaq" path="res://Skrypty/new_game_button.gd" id="3_fo2r8"]
 [ext_resource type="Texture2D" uid="uid://ch5xwx8xkyejb" path="res://assets/logotest.png" id="4_sr8ff"]
 [ext_resource type="Script" uid="uid://dogjb38xtbky" path="res://Skrypty/ResetButton.gd" id="5_iw7jg"]
-[ext_resource type="Script" uid="uid://comq38ct76o2a" path="res://Sceny/master_volume.gd" id="6_wo1d5"]
+[ext_resource type="Script" uid="uid://bemvuk5ltgme2" path="res://Skrypty/master_volume.gd" id="6_wo1d5"]
 [ext_resource type="AudioStream" uid="uid://cdjdebr3r33po" path="res://assets/SoundEffects/CamSwitch.mp3" id="7_v7tgf"]
 [ext_resource type="Texture2D" uid="uid://dh7es6nnc45or" path="res://assets/ProductLogoTransparent.png" id="9_4u21q"]
 

@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 			Root.remove_theme_stylebox_override("pressed")
 			Root.remove_theme_stylebox_override("focus")
 			GlobalVar.DeconTimeout = false
+			GlobalVar.VentDecontamination = false
 		elif ShouldLetGo:
 			pass
 		else:
