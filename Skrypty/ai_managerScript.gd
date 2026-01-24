@@ -136,6 +136,7 @@ func Analougeprocessing():
 					if not GlobalVar.IsDoorClosed:
 						JumpscareHandler(2)
 					else:
+						AnalougePreviousPosition = Vector2i(2, 0)
 						AnalougePosition = Vector2i(randi_range(0, 1), 2)
 						$"../DoorButton/DoorPitchedDown".play(0.18)
 			elif AnalougePosition.y == 0 and AnalougePosition.x != 2:
