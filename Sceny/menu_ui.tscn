@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://rgs8fw7nplwd" path="res://Skrypty/MenuScript.gd" id="1_78v38"]
 [ext_resource type="Script" uid="uid://beji275agxa3j" path="res://Skrypty/CamButtonScript.gd" id="2_78v38"]
 [ext_resource type="Script" uid="uid://030de2uhhgaq" path="res://Skrypty/new_game_button.gd" id="3_fo2r8"]
-[ext_resource type="Texture2D" uid="uid://ch5xwx8xkyejb" path="res://assets/logotest.png" id="4_sr8ff"]
+[ext_resource type="Texture2D" uid="uid://clua6x8fj3o6w" path="res://assets/Logo.png" id="5_4u21q"]
 [ext_resource type="Script" uid="uid://dogjb38xtbky" path="res://Skrypty/ResetButton.gd" id="5_iw7jg"]
 [ext_resource type="Script" uid="uid://bemvuk5ltgme2" path="res://Skrypty/master_volume.gd" id="6_wo1d5"]
 [ext_resource type="AudioStream" uid="uid://cdjdebr3r33po" path="res://assets/SoundEffects/CamSwitch.mp3" id="7_v7tgf"]
-[ext_resource type="Texture2D" uid="uid://dh7es6nnc45or" path="res://assets/ProductLogoTransparent.png" id="9_4u21q"]
+[ext_resource type="Texture2D" path="res://assets/ProductLogoTransparent.png" id="9_4u21q"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_fo2r8"]
 
@@ -108,9 +108,37 @@ alignment = 0
 script = ExtResource("2_78v38")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1023, 288)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_sr8ff")
+position = Vector2(996, 259)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_4u21q")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = -325.0
+offset_top = -250.0
+offset_right = -315.0
+offset_bottom = 250.0
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Sprite2D"]
+offset_left = 315.0
+offset_top = -250.0
+offset_right = 325.0
+offset_bottom = 250.0
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Sprite2D"]
+offset_left = -325.0
+offset_top = -250.0
+offset_right = 325.0
+offset_bottom = -240.0
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Sprite2D"]
+offset_left = -325.0
+offset_top = 250.0
+offset_right = 325.0
+offset_bottom = 260.0
+color = Color(0.8, 0.8, 0.8, 1)
 
 [node name="OptionsMenu" type="Control" parent="."]
 visible = false

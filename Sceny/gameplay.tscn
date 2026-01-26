@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://4k6gb8wlqtun"]
+[gd_scene load_steps=50 format=3 uid="uid://4k6gb8wlqtun"]
 
 [ext_resource type="Script" uid="uid://cmnvgjlv6hrnr" path="res://Skrypty/kamera.gd" id="1_7nput"]
 [ext_resource type="Texture2D" uid="uid://dp258g2kicjg5" path="res://assets/Rooms/MonitoringRoom/0.png" id="1_tfmsj"]
@@ -36,6 +36,9 @@
 [ext_resource type="AudioStream" uid="uid://epxvvol6wkmw" path="res://assets/SoundEffects/VentSFX/Vent4.mp3" id="34_5p335"]
 [ext_resource type="AudioStream" uid="uid://b2wbnxgcakmx5" path="res://assets/SoundEffects/VentSFX/Vent5.mp3" id="35_o1uf2"]
 [ext_resource type="AudioStream" uid="uid://cqlhba84xakyg" path="res://assets/SoundEffects/VentSFX/Vent6.mp3" id="36_01f8d"]
+[ext_resource type="AudioStream" uid="uid://clibguxbg1jpl" path="res://assets/SoundEffects/Tripwire.mp3" id="37_kf65n"]
+[ext_resource type="AudioStream" uid="uid://bqrk15qdq0ovd" path="res://assets/SoundEffects/DeconProcedureSFX/DeconFail.mp3" id="38_5p335"]
+[ext_resource type="AudioStream" uid="uid://cdvyu8av0eqmn" path="res://assets/SoundEffects/DeconProcedureSFX/DeconSuccess.mp3" id="39_o1uf2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_odu1o"]
 animations = [{
@@ -278,27 +281,44 @@ script = ExtResource("29_v86xe")
 
 [node name="Vent1" type="AudioStreamPlayer" parent="AI manager/SFX"]
 stream = ExtResource("31_3v4s6")
+max_polyphony = 5
 bus = &"SoundEffects"
 
 [node name="Vent2" type="AudioStreamPlayer" parent="AI manager/SFX"]
 stream = ExtResource("32_kf65n")
+max_polyphony = 5
 bus = &"SoundEffects"
 
 [node name="Vent3" type="AudioStreamPlayer" parent="AI manager/SFX"]
 stream = ExtResource("33_5xrft")
+max_polyphony = 5
 bus = &"SoundEffects"
 
 [node name="Vent4" type="AudioStreamPlayer" parent="AI manager/SFX"]
 stream = ExtResource("34_5p335")
+max_polyphony = 5
 bus = &"SoundEffects"
 
 [node name="Vent5" type="AudioStreamPlayer" parent="AI manager/SFX"]
 stream = ExtResource("35_o1uf2")
+max_polyphony = 5
 bus = &"SoundEffects"
 
 [node name="Vent6" type="AudioStreamPlayer" parent="AI manager/SFX"]
 stream = ExtResource("36_01f8d")
+max_polyphony = 5
 bus = &"SoundEffects"
+
+[node name="Tripwire" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("37_kf65n")
+volume_db = 3.0
+bus = &"SoundEffects"
+
+[node name="DeconFail" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("38_5p335")
+
+[node name="DeconSuccess" type="AudioStreamPlayer" parent="AI manager/SFX"]
+stream = ExtResource("39_o1uf2")
 
 [node name="Control" type="Control" parent="AI manager"]
 visible = false

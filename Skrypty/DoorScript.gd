@@ -6,12 +6,6 @@ var Sound = $"../DoorButton/AudioStreamPlayer2D"
 var ShouldPlay := true
 var rng = RandomNumberGenerator.new()
 
-func _input(event):
-	if event.is_action_pressed("DoorKey"):
-		GlobalVar.IsDoorClosed = true
-	elif event.is_action_released("DoorKey"):
-		GlobalVar.IsDoorClosed = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if GlobalVar.IsCameraOn == 0:
 		if GlobalVar.IsDoorClosed == false and root.frame != 0:

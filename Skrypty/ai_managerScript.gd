@@ -11,14 +11,21 @@ var Vents: Array = [
 	$SFX/Vent6
 ]
 
+var IsDeconSuccess := false
+
+@onready
+var TripwireSFX = $SFX/Tripwire
+
 @onready
 var SwitchCamSFX = $"../CamEnterExitEffect"
 
-var RoomStates := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+var RoomStates := [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 var PreviousCamState := 0
 
 var BBGTimer := 0.0
+
+var ServoVentID := 0
 
 var EtherTimer: float = 60 + rng.randf_range(0, 20) - GlobalVar.EtherAi
 var EtherMaxTimer := EtherTimer
@@ -61,15 +68,27 @@ func _process(delta: float) -> void:
 		else:
 			DayTimer += delta
 		BBGprocessing()
+		
 		if GlobalVar.AnalougeAI != 0:
 			Analougeprocessing()
-		Servoprocessing()
+		
+		if GlobalVar.ServoAI != 0:
+			Servoprocessing()
 		Randyprocessing()
 		CameraUpdater()
-
+		if GlobalVar.VentDecontamination:
+			GlobalVar.VentDecontamination = false
+			if IsDeconSuccess:
+				$SFX/DeconSuccess.play()
+				IsDeconSuccess = false
+			else:
+				$SFX/DeconFail.play()
+		
 
 func BBGprocessing():
 	pass
+
+
 func Etherprocessing():
 	if EtherPosition == 0:
 		var Progress = EtherTimer / EtherMaxTimer
@@ -122,9 +141,14 @@ func Etherprocessing():
 			EtherTimer = 1
 		if GlobalVar.VentDecontamination and EtherPosition == GlobalVar.VentDecontID - 4:
 			EtherPosition = 0
-			EtherMaxTimer = 90 + rng.randf_range(0, 20) - GlobalVar.EtherAi
+			EtherMaxTimer = 30 + rng.randf_range(0, 20) - GlobalVar.EtherAi
 			EtherTimer = EtherMaxTimer
 			EtherOtherTimer = 0
+			IsDeconSuccess = true
+		if GlobalVar.TripwireID - 4 == EtherPosition:
+			TripwireSFX.play()
+			GlobalVar.TripwireID = -9
+
 
 func Analougeprocessing():
 	if AnalougeTimer < 0:
@@ -145,10 +169,43 @@ func Analougeprocessing():
 					AnalougePosition.y -= 1
 			else:
 				AnalougePosition.x = abs(AnalougePosition.x - 1)
+
+
 func Servoprocessing():
-	pass
+	if GlobalVar.VentDecontamination and ServoVentID == GlobalVar.VentDecontID and ServoPosition.y != 5:
+			ServoPosition = Vector2i(0, 5)
+			ServoTimer = 8
+			IsDeconSuccess = true
+	if ServoTimer < 0 or ServoVentID == GlobalVar.TripwireID:
+		ServoTimer = 8
+		if GlobalVar.ServoAI >= rng.randi_range(0, 20):
+			if (40 + GlobalVar.ServoAI) >= rng.randi_range(0, 100):
+				if ServoPosition == Vector2i(1, 1):
+					JumpscareHandler(3)
+				elif ServoPosition.y == 1:
+					ServoPosition.x = 1
+				else:
+					ServoPosition.y -= 1
+			else:
+				ServoPosition.x = abs(ServoPosition.x - 1)
+			if ServoPosition.y != 5:
+				Vents.pick_random().play()
+			print(ServoPosition)
+			print(ServoVentID)
+			
+	if ServoVentID == GlobalVar.TripwireID:
+		TripwireSFX.play()
+		GlobalVar.TripwireID = -9
+		
+	if ServoPosition.y != 5:
+		ServoVentID = 5 + (4 * ServoPosition.x) - ServoPosition.y
+	else:
+		ServoVentID = -1
+
 func Randyprocessing():
 	pass
+
+
 func CameraUpdater():
 	
 	GlobalVar.Room1State = 0
@@ -160,54 +217,46 @@ func CameraUpdater():
 	GlobalVar.Room8State = 0
 	GlobalVar.Room9State = 0
 	GlobalVar.Room10State = 0
+	GlobalVar.Room11State = 0
 	
 	if GlobalVar.AnalougeAI != 0:
 		GlobalVar.Room11State = 0
 		match AnalougePosition:
 			Vector2i(0, 2):
 				GlobalVar.Room3State = 1
-				updateCam(3, 1)
 			Vector2i(1, 2):
 				GlobalVar.Room4State = 1
-				updateCam(4, 1)
 			Vector2i(0, 1):
 				GlobalVar.Room5State = 1
-				updateCam(5, 1)
 			Vector2i(1, 1):
 				GlobalVar.Room6State = 1
-				updateCam(6, 1)
 			Vector2i(0, 0):
 				GlobalVar.Room7State = 1
-				updateCam(7, 1)
 			Vector2i(1, 0):
 				GlobalVar.Room8State = 1
-				updateCam(8, 1)
 			Vector2i(2, 0):
 				GlobalVar.Room9State = 1
-				updateCam(9, 1)
 		match AnalougePreviousPosition:
 			Vector2i(0, 2):
 				GlobalVar.Room3State = 0
-				updateCam(3, 0)
 			Vector2i(1, 2):
 				GlobalVar.Room4State = 0
-				updateCam(4, 0)
 			Vector2i(0, 1):
 				GlobalVar.Room5State = 0
-				updateCam(5, 0)
 			Vector2i(1, 1):
 				GlobalVar.Room6State = 0
-				updateCam(6, 0)
 			Vector2i(0, 0):
 				GlobalVar.Room7State = 0
-				updateCam(7, 0)
 			Vector2i(1, 0):
 				GlobalVar.Room8State = 0
-				updateCam(8, 0)
 			Vector2i(2, 0):
 				GlobalVar.Room9State = 0
-				updateCam(9, 0)
-
+	if GlobalVar.ServoAI != 0:
+		if ServoPosition.y == 5:
+			GlobalVar.Room1State = 1
+		else:
+			GlobalVar.Room1State = 0
+	updateAllCams()
 
 func JumpscareHandler(WhichAnimatronic: int):
 	print("JUMPSCARE!")
@@ -233,6 +282,19 @@ func JumpscareHandler(WhichAnimatronic: int):
 func _on_black_screen_setup_ready() -> void:
 	DayStarted = true
 	MaxDayTimer = MaxDayTimer * GlobalVar.DayMultiplier
+
+func updateAllCams():
+	updateCam(1, GlobalVar.Room1State)
+	updateCam(3, GlobalVar.Room3State)
+	updateCam(4, GlobalVar.Room4State)
+	updateCam(5, GlobalVar.Room5State)
+	updateCam(6, GlobalVar.Room6State)
+	updateCam(7, GlobalVar.Room7State)
+	updateCam(8, GlobalVar.Room8State)
+	updateCam(9, GlobalVar.Room9State)
+	updateCam(10, GlobalVar.Room10State)
+	updateCam(11, GlobalVar.Room11State)
+	
 
 func updateCam(Which: int, Value: int):
 	if RoomStates[Which] != Value:

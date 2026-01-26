@@ -1,9 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://cdslutwi2uppw"]
+[gd_scene load_steps=23 format=3 uid="uid://cdslutwi2uppw"]
 
 [ext_resource type="Script" uid="uid://c3qru2bbl1c2a" path="res://Skrypty/CameraUI.gd" id="1_54t7v"]
 [ext_resource type="Theme" uid="uid://3felyhpgyvmb" path="res://assets/Themes/CameraTheme.tres" id="2_kk0q5"]
 [ext_resource type="Material" uid="uid://b4cegue3hsrub" path="res://Skrypty/Resources/CameraShader/CameraShader.tres" id="2_tmoa0"]
-[ext_resource type="Script" uid="uid://c1gsb0abddgsm" path="res://Skrypty/CameraHotkeys.gd" id="3_k22xd"]
 [ext_resource type="ButtonGroup" uid="uid://blagajqnt7k7s" path="res://Skrypty/Resources/CameraUIButtonGroup.tres" id="3_mppmi"]
 [ext_resource type="Script" uid="uid://bhk55u0lvf31k" path="res://Skrypty/CamSwitchScript.gd" id="3_p2pm2"]
 [ext_resource type="Script" uid="uid://beji275agxa3j" path="res://Skrypty/CamButtonScript.gd" id="5_rbv06"]
@@ -157,7 +156,6 @@ offset_top = 425.0
 offset_right = 874.72
 offset_bottom = 426.0
 scale = Vector2(0.65, 0.65)
-script = ExtResource("3_k22xd")
 
 [node name="Deco" type="Control" parent="CamUI"]
 anchors_preset = 0

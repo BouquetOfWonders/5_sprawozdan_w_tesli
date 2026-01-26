@@ -16,10 +16,10 @@ var IsModemOn := true
 var VentDecontamination := false
 var VentDecontID := 0
 var DeconTimeout := false
-var TripwireID := 0
+var TripwireID := -9
 
 var RandyAI := 0
-var ServoAI := 0
+var ServoAI := 10
 var AnalougeAI := 10
 var EtherAi := 10
 var BbgAI := 0
